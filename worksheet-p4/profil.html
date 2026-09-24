@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+  KERANGKA AWAL — Halaman Profil Saya
+  PABW 2026/2027 · Pertemuan 3
+
+  Cara pakai:
+  1. Salin berkas ini, ganti nama menjadi profil.html
+  2. Ganti setiap tulisan TODO dengan isi milik Anda SENDIRI
+  3. Simpan, lalu buka di peramban (F5 untuk memuat ulang)
+  4. Kerjakan berurutan mengikuti Lembar B, C, D, dan E pada worksheet
+
+  Jangan menghapus komentar TODO sebelum bagian itu Anda kerjakan —
+  komentar itu adalah daftar periksa Anda sendiri.
+-->
+<html lang="id" class="color-bg">
+<head>
+  <title>Profil</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="komponen.css">
+  <link rel="stylesheet" href="tema.css">
+
+</head>
+<body>
+
+     <h1>Makanan Favorit</h1>
+     <nav>
+          <a href="profil.html">Nasi Goreng</a>
+          <a href="profil.html">Pizza </a>
+          <a href="profil.html">Nasi Kuning</a>
+     </nav>
+
+     <main>
+          <section>
+               <h2>Daftar Makanan Favorit</h2>
+               <img src="/worksheet-p3/nasigoreng.jpg" alt="Nasi goreng sayur telur setengah matang dan keruput"><br>
+               <table>
+                    <caption>Tabel Makanan Favorit</caption>
+                    <thead>
+                         <tr>
+                              <th scope="col">Nama</th>
+                              <th scope="col">Bahan Utama</th>
+                              <th scope="col">Asal</th>
+                         </tr>
+                    </thead>
+                    <tbody>
+                         <tr>
+                              <td>Nasi Goreng</td>
+                              <td>Nasi dan kecap</td>
+                              <td>Indonesia</td>
+                         </tr>
+                         <tr>
+                              <td>Pizza</td>
+                              <td>Tepung dan saos</td>
+                              <td>Italia</td>
+                         </tr>
+                         <tr>
+                              <td>Sushi</td>
+                              <td>Ikan</td>
+                              <td>Jepang</td>
+                         </tr>
+                    </tbody>
+               </table>
+          </section>
+
+          <section>
+               <h2>Form Tambah Makanan Favorit</h2>
+               <form>
+                    <label for="nama">Nama Makanan</label><br>
+                    <input type="text" id="nama" name="nama"><br>
+                    <label for="bahan">Bahan</label><br>
+                    <input type="text" id="bahan" name="bahan"><br>
+                    <label for="asal">Asal</label><br>
+                    <input type="text" id="asal" name="asal"><br>
+                    <button>Simpan</button>
+               </form>
+          </section>
+     </main>
+
+       <footer>Arvianta Satya Pramadani 25523027, 2026</footer>
+
+</body>
+</html>

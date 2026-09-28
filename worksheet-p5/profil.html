@@ -1,24 +1,11 @@
 <!DOCTYPE html>
 <!--
   KERANGKA AWAL — Halaman Profil Saya
-  PABW 2026/2027 · Pertemuan 3
-
-  Cara pakai:
-  1. Salin berkas ini, ganti nama menjadi profil.html
-  2. Ganti setiap tulisan TODO dengan isi milik Anda SENDIRI
-  3. Simpan, lalu buka di peramban (F5 untuk memuat ulang)
-  4. Kerjakan berurutan mengikuti Lembar B, C, D, dan E pada worksheet
-
-  Jangan menghapus komentar TODO sebelum bagian itu Anda kerjakan —
-  komentar itu adalah daftar periksa Anda sendiri.
+  PABW 2026/2027 · Pertemuan 5: Layout Modern: Flexbox dan Grid
 -->
 <html lang="id" class="color-bg">
 
 <head>
-
-     <input type="checkbox" id="tema" class="pengalih-tema">
-     <!-- <label for="tema" class="tombol-tema">Tema gelap</label> -->
-
      <title>Profil</title>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,24 +16,44 @@
      <link rel="stylesheet" href="komponen.css">
      <link rel="stylesheet" href="tema.css">
      <link rel="stylesheet" href="style.css">
-
-
 </head>
 
 <body>
+     <input type="checkbox" id="tema" class="pengalih-tema">
      <div class="page">
-          <h1 class="header1">Makanan Favorit</h1>
-          <nav class="navbar">
-               <a href="profil.html">Nasi Goreng</a>
-               <a href="profil.html">Pizza </a>
-               <a href="profil.html">Nasi Kuning</a>
-          </nav>
+          <header>
+               <h1 class="header1">Makanan Favorit</h1>
+               <nav class="navbar">
+                    <a href="profil.html">Nasi Goreng</a>
+                    <a href="profil.html">Pizza</a>
+                    <a href="profil.html">Nasi Kuning</a>
+               </nav>
+          </header>
           <hr class="line">
           <main class="isi">
                <section>
                     <h2>Daftar Makanan Favorit</h2>
-                    <img src="/worksheet-p3/nasigoreng.jpg"
-                         alt="Nasi goreng sayur telur setengah matang dan keruput"><br>
+                    <div class="galeri">
+                         <div class="kartu">
+                              <img src="nasigoreng.jpg" alt="Nasi goreng sayur telur setengah matang dan kerupuk">
+                              <div class="kartu__isi">
+                                   <h3 class="kartu__judul">Nasi Goreng</h3>
+                              </div>
+                         </div>
+                         <div class="kartu">
+                              <img src="pizza.jpg" alt="Pizza keju dan tomat">
+                              <div class="kartu__isi">
+                                   <h3 class="kartu__judul">Pizza</h3>
+                              </div>
+                         </div>
+                         <div class="kartu">
+                              <img src="nasikuning.jpg" alt="Nasi Kuning komplit">
+                              <div class="kartu__isi">
+                                   <h3 class="kartu__judul">Nasi Kuning</h3>
+                              </div>
+                         </div>
+                    </div>
+                    <br>
                     <table>
                          <caption>Tabel Makanan Favorit</caption>
                          <thead>

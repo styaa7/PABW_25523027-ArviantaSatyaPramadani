@@ -33,14 +33,6 @@ nav a:hover {
   text-decoration: underline;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  gap: var(--section-gap);
-  /* jarak antar bagian, tanpa margin */
-  padding-block: var(--space-6);
-}
-
 .katalog {
   display: flex;
   flex-wrap: wrap;
@@ -59,7 +51,6 @@ main {
 }
 
 footer {
-  margin-top: var(--space-6);
   padding-block: var(--space-4);
   border-top: 1px solid var(--color-border);
   color: var(--color-fg);
@@ -67,12 +58,14 @@ footer {
   font-size: var(--text-sm);
 }
 
+/* Lembar B.1 Kerangka halaman */
 .page {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  min-height: 10dvh;
+  min-height: 100dvh;
 }
 
+/* Lembar B.2 Navbar dan isi */
 .navbar {
   display: flex;
   gap: var(--space-4);
@@ -83,16 +76,9 @@ footer {
   display: grid;
   grid-template-columns: 16rem 1fr;
   gap: var(--space-6);
+  padding-block: var(--space-6);
 }
 
-.galeri {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  gap: var(--space-4);
-}
-
-.galeri .kartu {
-  display: grid;
-  align-content: start;
-  min-height: 14rem;
-}
+/* Lembar D.1 Span */
+.sorotan { grid-column: span 2; }
+.papan { grid-row: span 2; }

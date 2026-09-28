@@ -28,3 +28,38 @@ button {
   cursor: pointer;
   margin-top: 15px;
 }
+
+/* Lembar C.1 Galeri adaptif */
+.galeri {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--space-4);
+}
+
+/* Lembar C.2 Isi kartu */
+.kartu__kaki {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+/* Lembar E.1 Tinggi kartu tidak seragam */
+.galeri .kartu {
+  display: grid;
+  align-content: start;
+  min-height: 14rem;
+}
+
+/* Lembar E.2 Isi panjang mendorong kolom */
+.kartu__isi { min-width: 0; }
+.kartu__judul { overflow-wrap: anywhere; }
+
+.kartu img {
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-2);
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+

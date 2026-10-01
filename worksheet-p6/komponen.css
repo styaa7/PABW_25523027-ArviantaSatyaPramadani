@@ -1,9 +1,10 @@
 /* Galeri: 3 kolom sejajar ke samping */
 .galeri {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  display: flex;
+  flex-direction: row;
   gap: var(--space-4);
-  align-items: start;
+  overflow-x: auto;       /* Memungkinkan scroll horizontal jika kartu melebihi wadah */
+  padding-bottom: 1rem;   /* Memberikan ruang agar scrollbar tidak menempel */
   width: 100%;
 }
 

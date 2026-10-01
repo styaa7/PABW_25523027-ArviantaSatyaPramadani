@@ -66,8 +66,7 @@ footer {
 }
 
 .isi {
-  display: grid;
-  grid-template-columns: 16rem 1fr;
+  display: block; /* atau grid-template-columns: 1fr; */
   gap: var(--space-6);
   padding-block: var(--space-6);
 }

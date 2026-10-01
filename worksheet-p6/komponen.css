@@ -1,0 +1,65 @@
+.form-kolom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);          /* jarak label ke isian, seragam */
+}
+ 
+label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+ 
+input, select, textarea {
+  font: inherit;                /* kolom isian ikut ukuran huruf halaman */
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-fg);
+}
+ 
+button {
+  font: inherit;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: var(--color-surface);
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+/* Lembar C.1 Galeri adaptif */
+.galeri {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--space-4);
+}
+
+/* Lembar C.2 Isi kartu */
+.kartu__kaki {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+/* Lembar E.1 Tinggi kartu tidak seragam */
+.galeri .kartu {
+  display: grid;
+  align-content: start;
+  min-height: 14rem;
+}
+
+/* Lembar E.2 Isi panjang mendorong kolom */
+.kartu__isi { min-width: 0; }
+.kartu__judul { overflow-wrap: anywhere; }
+
+.kartu img {
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-2);
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+

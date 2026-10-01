@@ -1,65 +1,50 @@
-.form-kolom {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);          /* jarak label ke isian, seragam */
-}
- 
-label {
-  font-size: var(--text-sm);
-  font-weight: 600;
-}
- 
-input, select, textarea {
-  font: inherit;                /* kolom isian ikut ukuran huruf halaman */
-  padding: var(--space-2) var(--space-3);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: var(--color-surface);
-  color: var(--color-fg);
-}
- 
-button {
-  font: inherit;
-  padding: var(--space-2) var(--space-4);
-  border: 1px solid transparent;
-  border-radius: var(--radius-md);
-  background: var(--color-primary);
-  color: var(--color-surface);
-  cursor: pointer;
-  margin-top: 15px;
-}
-
-/* Lembar C.1 Galeri adaptif */
+/* Galeri: 3 kolom sejajar ke samping */
 .galeri {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
   gap: var(--space-4);
-}
-
-/* Lembar C.2 Isi kartu */
-.kartu__kaki {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-2);
-}
-
-/* Lembar E.1 Tinggi kartu tidak seragam */
-.galeri .kartu {
-  display: grid;
-  align-content: start;
-  min-height: 14rem;
-}
-
-/* Lembar E.2 Isi panjang mendorong kolom */
-.kartu__isi { min-width: 0; }
-.kartu__judul { overflow-wrap: anywhere; }
-
-.kartu img {
-  border-radius: var(--radius-md);
-  margin-bottom: var(--space-2);
+  align-items: start;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
 }
 
+/* Kartu: Flex mendatar (gambar kiri, teks kanan) */
+.galeri .kartu,
+.kartu {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--space-3);
+  width: auto;                     /* Jangan kunci dengan width: 320px */
+  padding: 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-sizing: border-box;
+}
+
+/* Gambar di sisi kiri kartu */
+.kartu img {
+  width: 130px;
+  min-width: 130px;                /* Kunci ukuran lebar gambar */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin-bottom: 0;
+}
+
+/* Isi teks di sisi kanan kartu */
+.kartu__isi {
+  flex: 1;
+  min-width: 0;
+}
+
+.kartu__judul {
+  margin-top: 0;
+  margin-bottom: var(--space-2);
+}
+
+.kartu__isi p {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: 1.4;
+}

@@ -1,0 +1,85 @@
+header {
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-baris {
+  /* <div class="header-baris"> di dalam header */
+  display: flex;
+  align-items: center; /* sumbu silang: rata tengah */
+  justify-content: space-between; /* sumbu utama: judul kiri, menu kanan */
+  gap: var(--space-4);
+  flex-wrap: wrap; /* turun baris di layar sempit, jangan meluber */
+}
+
+nav ul {
+  display: flex;
+  gap: var(--space-4);
+  list-style: none; /* daftar nav tanpa butir */
+  padding: 0;
+}
+
+nav a {
+  color: var(--color-primary);
+  text-decoration: none;
+  padding-left: 10px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.katalog {
+  display: flex;
+  flex-wrap: wrap; /* kunci responsif: kartu turun sendiri */
+  gap: var(--space-4);
+}
+
+.kartu {
+  flex: 1 1 16rem; /* tumbuh, menyusut, lebar dasar 16rem */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-1);
+  padding: var(--card-pad);
+}
+
+footer {
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-fg); /* hindari abu pucat yang gagal kontras */
+  font-size: var(--text-sm);
+}
+
+/* Lembar B.1 Kerangka halaman */
+.page {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100dvh;
+}
+
+/* Lembar B.2 Navbar dan isi */
+.navbar {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.isi {
+  display: block; /* atau grid-template-columns: 1fr; */
+  gap: var(--space-6);
+  padding-block: var(--space-6);
+}
+
+/* Lembar D.1 Span */
+.sorotan { 
+  grid-column: span 2; 
+}
+
+.papan { 
+  grid-row: span 2; 
+}
+
+.sidebar {
+  width: 320px;
+}

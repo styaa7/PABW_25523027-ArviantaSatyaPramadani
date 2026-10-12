@@ -15,7 +15,7 @@ function buatKartu(proyek) {
 
     // Buat elemen gambar
     const img = document.createElement("img");
-    img.src = proyek.gambar;
+    img.src = proyek.gambar || "nasigoreng.jpg";
     img.alt = proyek.judul;
 
     // Buat wadah teks
@@ -26,7 +26,10 @@ function buatKartu(proyek) {
     h3.className = "kartu__judul";
     h3.textContent = proyek.judul;
 
-    divIsi.append(h3);
+    const p = document.createElement("p");
+    p.textContent = proyek.deskripsi || "Makanan lezat dan favorit.";
+
+    divIsi.append(h3, p);
     divKartu.append(img, divIsi);
 
     return divKartu;

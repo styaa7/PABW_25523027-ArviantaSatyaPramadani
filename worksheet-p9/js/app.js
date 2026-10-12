@@ -5,30 +5,9 @@ const profil = {
 };
 
 export const daftarMakanan = [
-    { 
-        judul: "Nasi Goreng", 
-        kategori: "Tradisional", 
-        gambar: "nasigoreng.jpg",
-        deskripsi: "Nasi goreng lezat dengan bumbu rempah pilihan.",
-        tahun: 2026, 
-        favorit: true 
-    },
-    { 
-        judul: "Pizza", 
-        kategori: "Internasional", 
-        gambar: "pizza.jpg",
-        deskripsi: "Pizza keju mozarella dengan adonan renyah.",
-        tahun: 2026, 
-        favorit: true 
-    },
-    { 
-        judul: "Nasi Kuning", 
-        kategori: "Tradisional", 
-        gambar: "nasikuning.jpg",
-        deskripsi: "Nasi kuning wangi santan khas acara syukuran.",
-        tahun: 2026, 
-        favorit: true 
-    }
+    { judul: "Nasi Goreng", kategori: "Tradisional", gambar: "nasigoreng.jpg", tahun: 2026, favorit: true },
+    { judul: "Pizza", kategori: "Internasional", gambar: "pizza.jpg", tahun: 2026, favorit: true },
+    { judul: "Nasi Kuning", kategori: "Tradisional", gambar: "nasikuning.jpg", tahun: 2026, favorit: true }
 ];
 
 const kalimat = `Nama saya ${profil.nama}, dan saya memiliki ${profil.makananKesukaan.length} makanan favorit.`;

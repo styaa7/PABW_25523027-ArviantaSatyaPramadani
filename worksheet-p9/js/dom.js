@@ -10,16 +10,15 @@ const galatNama = document.querySelector("#galat-nama");
 
 // --- LEMBAR B: Membuat Elemen dari Data ---
 function buatKartu(proyek) {
-    // 1. Wadah kartu luar
     const divKartu = document.createElement("div");
     divKartu.className = "kartu";
 
-    // 2. Elemen gambar
+    // Buat elemen gambar
     const img = document.createElement("img");
     img.src = proyek.gambar;
     img.alt = proyek.judul;
 
-    // 3. Wadah isi teks
+    // Buat wadah teks
     const divIsi = document.createElement("div");
     divIsi.className = "kartu__isi";
 
@@ -27,11 +26,7 @@ function buatKartu(proyek) {
     h3.className = "kartu__judul";
     h3.textContent = proyek.judul;
 
-    const p = document.createElement("p");
-    p.textContent = proyek.deskripsi;
-
-    // 4. Susun elemen
-    divIsi.append(h3, p);
+    divIsi.append(h3);
     divKartu.append(img, divIsi);
 
     return divKartu;

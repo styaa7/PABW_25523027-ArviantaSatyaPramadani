@@ -1,15 +1,16 @@
 const profil = {
     nama: "Arvianta Satya Pramadani",
     peran: "Mahasiswa Informatika",
-    keahlian: ["HTML","CSS","JavaScript"]
+    makananKesukaan: ["Nasi Goreng","Nasi Padang","Nasi Kuning"]
 };
 
-const daftarProyek = [
-    {judul: "Halaman Profil", tahun: 2026, selesai: true},
-    {judul: "Katalog Produk", tahun: 2026, selesai: false}
+const daftarMakanan = [
+    {judul: "Nasi Goreng", tahun: 2026, favorit: true},
+    {judul: "Nasi Padang", tahun: 2026, favorit: true},
+    {judul: "Nasi Kuning", tahun: 2026, favorit: true}
 ]
 
-const kalimat = `Nama saya ${profil.nama}, dan saya belajar ${profil.keahlian.length} hal.`;
+const kalimat = `Nama saya ${profil.nama}, dan saya memiliki ${profil.makananKesukaan.length} makanan favorit.`;
 console.log(kalimat);
 
 function buatPerkenalan({nama,peran}) {
@@ -19,14 +20,14 @@ function buatPerkenalan({nama,peran}) {
 const formatKeahlian = (daftar) => daftar.join(".");
 
 console.log(buatPerkenalan(profil));
-console.log(formatKeahlian(profil.keahlian))
+console.log(formatKeahlian(profil.makananKesukaan))
 
-console.table(profil.keahlian);
-console.log(daftarProyek);
+console.table(profil.makananKesukaan);
+console.log(daftarMakanan);
 
-const selesai = daftarProyek.filter((proyek) => proyek.selesai);
+const selesai = daftarMakanan.filter((proyek) => proyek.selesai);
 console.table(selesai);
 
-const katalog = daftarProyek.find((proyek) => proyek.judul === "Katalog Produk");
+const katalog = daftarMakanan.find((proyek) => proyek.judul === "Katalog Makanan");
 console.log(katalog)
 

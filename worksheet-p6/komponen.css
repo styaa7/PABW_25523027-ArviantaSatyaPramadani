@@ -1,0 +1,51 @@
+/* Galeri: 3 kolom sejajar ke samping */
+.galeri {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-4);
+  overflow-x: auto;       /* Memungkinkan scroll horizontal jika kartu melebihi wadah */
+  padding-bottom: 1rem;   /* Memberikan ruang agar scrollbar tidak menempel */
+  width: 100%;
+}
+
+/* Kartu: Flex mendatar (gambar kiri, teks kanan) */
+.galeri .kartu,
+.kartu {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--space-3);
+  width: auto;                     /* Jangan kunci dengan width: 320px */
+  padding: 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-sizing: border-box;
+}
+
+/* Gambar di sisi kiri kartu */
+.kartu img {
+  width: 130px;
+  min-width: 130px;                /* Kunci ukuran lebar gambar */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  margin-bottom: 0;
+}
+
+/* Isi teks di sisi kanan kartu */
+.kartu__isi {
+  flex: 1;
+  min-width: 0;
+}
+
+.kartu__judul {
+  margin-top: 0;
+  margin-bottom: var(--space-2);
+}
+
+.kartu__isi p {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: 1.4;
+}

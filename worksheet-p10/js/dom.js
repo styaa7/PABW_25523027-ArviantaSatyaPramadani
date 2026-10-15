@@ -1,109 +1,110 @@
-import { daftarMakanan } from "./app.js";
-
-// --- LEMBAR A: Pemilihan Elemen ---
 const wadah = document.querySelector("#daftar");
 const pesanKosong = document.querySelector("#pesan-kosong");
+const pesanMuat = document.querySelector("#muat");
+const pesanGalat = document.querySelector("#galat");
 const barisFilter = document.querySelector("#filter");
 const form = document.querySelector("#form-makanan");
 const inputNama = document.querySelector("#nama");
 const galatNama = document.querySelector("#galat-nama");
 
-// --- LEMBAR B: Membuat Elemen dari Data ---
-function buatKartu(proyek) {
-    const divKartu = document.createElement("div");
-    divKartu.className = "kartu";
+let sumberData = [];
 
-    // Buat elemen gambar
-    const img = document.createElement("img");
-    img.src = proyek.gambar || "nasigoreng.jpg";
-    img.alt = proyek.judul;
-
-    // Buat wadah teks
-    const divIsi = document.createElement("div");
-    divIsi.className = "kartu__isi";
-
-    const h3 = document.createElement("h3");
-    h3.className = "kartu__judul";
-    h3.textContent = proyek.judul;
-
-    const p = document.createElement("p");
-    p.textContent = proyek.deskripsi || "Makanan lezat dan favorit.";
-
-    divIsi.append(h3, p);
-    divKartu.append(img, divIsi);
-
-    return divKartu;
+export function aturMemuat(sedangMemuat) {
+  if (pesanMuat) pesanMuat.hidden = !sedangMemuat;
+  if (sedangMemuat) {
+    if (pesanGalat) pesanGalat.hidden = true;
+    if (pesanKosong) pesanKosong.hidden = true;
+  }
 }
 
-// --- LEMBAR D: Pola Render Terpusat ---
-function render(daftar) {
-    // 1. Kosongkan wadah lebih dulu agar kartu tidak berlipat
-    wadah.textContent = "";
-
-    // 2. Periksa keadaan kosong
-    if (daftar.length === 0) {
-        pesanKosong.hidden = false;
-        return;
-    }
-    pesanKosong.hidden = true;
-
-    // 3. Isi ulang wadah dari data
-    daftar.forEach((proyek) => wadah.append(buatKartu(proyek)));
+export function tampilkanGalat(pesan) {
+  if (pesanGalat) {
+    pesanGalat.textContent = pesan;
+    pesanGalat.hidden = false;
+  }
 }
 
-// --- LEMBAR C: Event Delegation pada Tombol Filter ---
-function tandaiTombolAktif(tombolAktif) {
-    document.querySelectorAll("#filter button").forEach((tombol) => {
-        tombol.classList.toggle("aktif", tombol === tombolAktif);
-    });
+function buatKartu(item) {
+  const divKartu = document.createElement("div");
+  divKartu.className = "kartu";
+
+  const img = document.createElement("img");
+  img.src = item.gambar || "nasigoreng.jpg";
+  img.alt = item.judul;
+
+  const divIsi = document.createElement("div");
+  divIsi.className = "kartu__isi";
+
+  const h3 = document.createElement("h3");
+  h3.className = "kartu__judul";
+  h3.textContent = item.judul;
+
+  const p = document.createElement("p");
+  p.textContent = item.deskripsi || "Deskripsi makanan favorit.";
+
+  divIsi.append(h3, p);
+  divKartu.append(img, divIsi);
+  return divKartu;
 }
 
-// Pasang pendengar sekali di induk
-barisFilter.addEventListener("click", (event) => {
+
+export function render(daftar) {
+  wadah.textContent = "";
+
+  if (!daftar || daftar.length === 0) {
+    pesanKosong.hidden = false;
+    return;
+  }
+  pesanKosong.hidden = true;
+
+ 
+  daftar.forEach((item) => wadah.append(buatKartu(item)));
+}
+
+export function setSumberData(data) {
+  sumberData = data;
+}
+
+// Event filter
+if (barisFilter) {
+  barisFilter.addEventListener("click", (event) => {
     const tombol = event.target.closest("button");
-    if (!tombol) return; // Abaikan klik di luar tombol
+    if (!tombol) return;
 
-    tandaiTombolAktif(tombol);
+    document.querySelectorAll("#filter button").forEach((t) => {
+      t.classList.toggle("aktif", t === tombol);
+    });
 
     const kategori = tombol.dataset.kategori;
-    const terpilih = daftarMakanan.filter(
-        (proyek) => kategori === "semua" || proyek.kategori === kategori
+    const terpilih = sumberData.filter(
+      (item) => kategori === "semua" || item.kategori === kategori
     );
-
     render(terpilih);
-});
-
-// --- LEMBAR D: Validasi Form ---
-if (form) {
-    form.addEventListener("submit", (event) => {
-        // Hentikan pengiriman bawaan agar halaman tidak reload
-        event.preventDefault();
-
-        const namaNilai = inputNama.value.trim();
-
-        if (namaNilai === "") {
-            galatNama.textContent = "Nama makanan tidak boleh kosong atau hanya berisi spasi.";
-            inputNama.setAttribute("aria-invalid", "true");
-            inputNama.focus();
-            return;
-        }
-
-        // Bersihkan tanda galat jika sudah benar
-        galatNama.textContent = "";
-        inputNama.removeAttribute("aria-invalid");
-
-        // Masukkan data baru dan gambar ulang
-        daftarMakanan.push({
-            judul: namaNilai,
-            kategori: "Tradisional",
-            tahun: 2026,
-            favorit: true
-        });
-
-        render(daftarMakanan);
-        form.reset();
-    });
+  });
 }
 
-// Render awal saat halaman baru dibuka
-render(daftarMakanan);
+// Validasi Form
+if (form) {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const namaNilai = inputNama.value.trim();
+    if (namaNilai === "") {
+      galatNama.textContent = "Nama makanan tidak boleh kosong.";
+      inputNama.focus();
+      return;
+    }
+    galatNama.textContent = "";
+    const baru = {
+      id: Date.now(),
+      judul: namaNilai,
+      kategori: "Tradisional",
+      deskripsi: "Makanan baru ditambahkan.",
+      gambar: "nasigoreng.jpg",
+      tahun: 2026,
+      favorit: true
+    };
+    sumberData.push(baru);
+    render(sumberData);
+    form.reset();
+  });
+}

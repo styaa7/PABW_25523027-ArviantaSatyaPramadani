@@ -49,3 +49,12 @@
   font-size: var(--text-sm);
   line-height: 1.4;
 }
+
+.favorit {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #f59e0b; /* Warna kuning emas */
+  cursor: pointer;
+  padding: 4px;
+}
